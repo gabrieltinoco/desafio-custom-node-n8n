@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=n8n
       - POSTGRES_PASSWORD=mysecretpassword
       - POSTGRES_DB=n8n
-    volumes:
+    volumes:      # <-- Correto: Alinhado com as outras propriedades
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U n8n -d n8n"]
@@ -18,7 +18,7 @@ services:
       retries: 10
 
   n8n:
-    image: n8nio/n8n:latest
+    image: docker.n8n.io/n8nio/n8n:latest 
     restart: always
     ports:
       - "127.0.0.1:5678:5678"
