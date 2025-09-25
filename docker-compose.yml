@@ -18,7 +18,8 @@ services:
       retries: 10
 
   n8n:
-    image: docker.n8n.io/n8nio/n8n:latest 
+    image: docker.n8n.io/n8nio/n8n:latest
+    user: root
     restart: always
     ports:
       - "127.0.0.1:5678:5678"
